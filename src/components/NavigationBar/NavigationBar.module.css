@@ -1,0 +1,92 @@
+/* src/components/NavigationBar.module.css */
+.nav {
+  background-color: #f4f4f4;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  position: fixed; /* Navegação na parte inferior do layout */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que a navegação fique por cima */
+  transition: all 0.3s ease; /* Transição suave para mudanças de estilo */
+}
+
+.nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap; /* Impede que os itens quebrem para a próxima linha */
+  overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+}
+
+.nav li {
+  margin: 0 1rem; /* Aumentar o espaçamento entre os ícones */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav div {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.25rem; /* Reduzir o padding */
+  border-radius: 8px;
+}
+
+.nav .active div {
+  background-color: #d3d3d3;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.25rem; /* Espaço entre ícone e texto */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav {
+    padding: 0.25rem; /* Reduzir o padding da barra de navegação */
+  }
+
+  .nav ul {
+    flex-direction: row; /* Mantenha os itens em linha */
+    overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+    white-space: nowrap; /* Impede que os itens quebrem para a próxima linha */
+  }
+
+  .nav li {
+    margin: 0 1rem; /* Aumentar o espaçamento entre os ícones em telas menores */
+  }
+
+  .icon {
+    width: 30px; /* Diminuir o tamanho dos ícones */
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    padding: 0.25rem; /* Mantém o padding reduzido */
+  }
+
+  .nav ul {
+    flex-direction: row; /* Mantenha os itens em linha */
+    overflow-x: auto; /* Adiciona rolagem horizontal se necessário */
+    white-space: nowrap; /* Impede que os itens quebrem para a próxima linha */
+  }
+
+  .nav li {
+    margin: 0 0.75rem; /* Aumentar o espaçamento entre os ícones em telas muito pequenas */
+  }
+
+  .icon {
+    width: 24px; /* Diminuir ainda mais o tamanho dos ícones */
+    height: 24px;
+  }
+}
