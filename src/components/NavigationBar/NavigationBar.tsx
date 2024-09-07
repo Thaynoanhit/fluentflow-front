@@ -1,11 +1,11 @@
-'use client'; // Client Component
+'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './NavigationBar.module.css';
 
 const NavigationBar = () => {
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>('Home');
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const handleClick = (text: string) => {
@@ -25,17 +25,17 @@ const NavigationBar = () => {
     };
   }, []);
 
+  const routes = [
+    { name: 'Home', icon: '/icons/home.png', href: '/' }, 
+    { name: 'Estudar', icon: '/icons/estudar.png', href: '/Estudar' },
+    { name: 'Revisar', icon: '/icons/treinar.png', href: '/Treinar' },
+    { name: 'Progresso', icon: '/icons/progresso.png', href: '/Progresso' },
+  ];
+
   return (
     <nav className={styles.nav}>
       <ul>
-        {[
-          { name: 'Home', icon: '/icons/home.png', href: '/Home' }, 
-          { name: 'Descobrir', icon: '/icons/descobrir.png', href: '/Descobrir' },
-          { name: 'Estudar', icon: '/icons/estudar.png', href: '/Estudar' },
-          { name: 'Treinar', icon: '/icons/treinar.png', href: '/Treinar' },
-          { name: 'Progresso', icon: '/icons/progresso.png', href: '/Progresso' },
-          { name: 'Perfil', icon: '/icons/perfil.png', href: '/Perfil' },
-        ].map((item) => (
+        {routes.map((item) => (
           <li key={item.name} className={active === item.name ? styles.active : ''}>
             <div onClick={() => handleClick(item.name)}>
               <Link href={item.href}>
