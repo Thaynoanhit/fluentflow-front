@@ -1,26 +1,20 @@
 "use client";
-import {useState,useEffect} from "react";
-import CategoryList from "@/components/CategoryList";
-import { useRouter } from "next/navigation";
+
+import CategoryList from "@/components/CategoryList/CategoryList";
+import NavigationBar from "@/components/NavigationBar/NavigationBar";
 
 export default function Home() {
 
-  const [categories, setCategories] = useState(null);
-
-
-  useEffect(() => {
-    fetch(`http://localhost:8080/categories`)
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setCategories(data);
-      })
-  }, [])
+  const categories = [
+    {"id": 1, "categoryName": "essenciais"},
+    {"id": 2, "categoryName": "phrasal verbs"},
+    {"id": 3, "categoryName": "tecnologia"}
+  ]
 
   return (
-    categories && (
-      <CategoryList categories={categories} />
-    )
+    <>
+      {categories && <CategoryList categories={categories} />}
+      <NavigationBar /> 
+    </>  
   );
 }
