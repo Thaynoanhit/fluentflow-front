@@ -1,0 +1,171 @@
+/* Container principal da página */
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+    height: 100vh;
+    background-color: #f0f0f0;
+    position: relative;
+    padding: 20px;
+  }
+  
+  /* Contêiner para ícone e texto dentro dos cartões de estatísticas */
+  .iconTextContainer {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+  }
+  
+  /* Estilo dos ícones nas estatísticas */
+  .statIcon {
+    width: 50px; 
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  /* Contêiner para o texto dentro dos cartões de estatísticas */
+  .statText {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  /* Título dentro dos cartões de estatísticas */
+  .statTitle {
+    font-size: 1.1rem; 
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Valor dentro dos cartões de estatísticas */
+  .statValue {
+    font-size: 1.3rem; 
+    color: #555;
+  }
+  
+  /* Contêiner para o perfil do usuário */
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; 
+    width: 100%; 
+  }
+  
+  /* Estilo do avatar do usuário */
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px; 
+  }
+  
+  /* Contêiner para as informações do usuário */
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Título do perfil do usuário */
+  .profileText {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Nome do usuário */
+  .userName {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 5px; 
+  }
+  
+  /* Data de adesão do usuário */
+  .joinDate {
+    font-size: 0.875rem;
+    color: #888;
+    margin-top: 5px; 
+  }
+  
+  /* Texto adicional antes da data de adesão */
+  .joinDate::before {
+    content: "Membro desde: ";
+    font-weight: bold;
+  }
+  
+  /* Linha divisória entre seções */
+  .divider {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin: 10px 0; 
+  }
+  
+  /* Título principal da página */
+  .title {
+    font-size: 2rem;
+    color: #333;
+    margin-top: 20px;
+    text-align: center; 
+  }
+  
+  /* Contêiner para os cartões de estatísticas */
+  .statsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0; 
+  }
+  
+  /* Estilo para cada cartão de estatísticas */
+  .statCard {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px; 
+    margin: 10px; 
+    width: 65%; 
+    text-align: center; 
+  }
+  
+  /* Contêiner para o total de palavras */
+  .totalContainer {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    width: 65%;
+    margin: 20px 0;
+    background-color: #cac9c9; 
+    border-radius: 8px; 
+    padding: 10px; 
+  }
+  
+  /* Estilo do ícone do total */
+  .totalIcon {
+    width: 50px; 
+    height: 50px;
+    margin-right: 25px; 
+  }
+  
+  /* Contêiner para o texto do total */
+  .totalText {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  /* Título do total de palavras */
+  .totalTitle {
+    font-size: 1.25rem;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Valor total de palavras */
+  .totalValue {
+    font-size: 1.5rem;
+    color: #555;
+    font-weight: bold;
+  }
+  
