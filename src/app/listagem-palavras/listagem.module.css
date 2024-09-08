@@ -1,0 +1,15 @@
+.title{
+    text-align: center;
+}
+
+.returnButton{
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.buttonDiv{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+}
