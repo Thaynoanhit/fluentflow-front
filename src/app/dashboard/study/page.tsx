@@ -6,8 +6,8 @@ import {
     Container
 } from './styles';
 
-export default function StudyPage() {
-    // Crie o vetor de palavras e traduções
+export default function StudyPage(){
+
     const wordsList = [
         { word: 'test', translation: 'teste' },
         { word: 'apple', translation: 'maçã' },
@@ -23,7 +23,6 @@ export default function StudyPage() {
 
     return (
         <Container>
-            {/* Mapeia o vetor para exibir cada palavra com a tradução */}
             {wordsList.map((item, index) => (
                 <WordStudyCard key={index} word={item.word} translation={item.translation} />
             ))}
