@@ -13,12 +13,8 @@ export default function FormLogin() {
     const [password, setPassword] = useState("");
     const router = useRouter(); 
 
-
-  
     const notifyError = (message: string) => toast(message, { autoClose: 2000, type: 'error', theme: 'colored' });
     const notifySuccess = () => toast("Login realizado com sucesso!", { autoClose: 2000, type: 'success', theme: 'colored' });
-
-
    
     const validateEmailAndPassword = (email: string, password: string) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -45,27 +41,22 @@ export default function FormLogin() {
                 password: password,
             });
 
-      
             const userData = {
                 user: response.data.user, 
                 token: response.data.token  
             };
 
-            
             localStorage.setItem("userData", JSON.stringify(userData));
-
             
             notifySuccess();
 
-           
             setTimeout(() => {
-                router.push("/");
+                router.push("/dashboard");
             }, 2000);
 
-
-        } catch (error) {
-    
-            notifyError("Erro ao fazer login. Verifique os dados e tente novamente.");
+        } catch (error: any) {
+            notifyError(error.response.data.error);
+            notifyError(error.response.data.error[0].message);
         }
     };
     
@@ -74,8 +65,8 @@ export default function FormLogin() {
         <div className="page-container">
             <div className="form-section">
                 <form onSubmit={handleSubmit}>
-                    <h1>Welcome!</h1>
-                    <h2>Acesse o sistema</h2>
+                    <h1 className="welcome-title">Welcome!</h1>
+                    <h2 className="login-subtitle">Acesse o sistema</h2>
                     <div className="input-container">
                         <input
                             className="input-field"
@@ -94,18 +85,16 @@ export default function FormLogin() {
                         />
                         <FaLock className="icon" />
                     </div>
-                    <button type="submit">Entrar</button>
+                    <button className="login-button" type="submit">Entrar</button>
                     <div className="signup-link">
                         <p>
-                            Não tem uma conta? <a href="#">Registrar</a>
+                            Não tem uma conta? <a href="/register">Registrar</a>
                         </p>
                     </div>
                     <ToastContainer />
                 </form>
             </div>
-            <div className="image-section">
-                {}
-            </div>
+            <div className="image-section"/>
         </div>
     );
 }
