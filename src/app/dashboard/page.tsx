@@ -2,6 +2,7 @@
 import { ListWordsCard } from "@/components/dashboard/ListWordsCard";
 import { ListWordCardsContainer} from "./styles"
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Dashboard() {
 
@@ -13,9 +14,11 @@ export default function Dashboard() {
     {"id": 3, "name": "tecnologia"}
   ]
 
-  const handleNavigate = ({data}) => {
+  const handleNavigate = () => {
     router.push('dashboard/words')
   }
+
+  useEffect(() => {}, [])
 
   return (
     <div>
