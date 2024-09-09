@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
+'use client'
+
 import { Poppins } from "next/font/google";
-import GlobalStyle from '../styles/GlobalStyles';
+import "./globals.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['500', '600', '700'] });
-
-export const metadata: Metadata = {
-  title: "FluentFlow",
-  description: "FluentFlow",
-};
 
 export default function RootLayout({
   children,
@@ -18,7 +14,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <GlobalStyle/>
         {children}
       </body>
     </html>
