@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./page.module.css";
-import NavigationBar from "../../components/NavigationBar/NavigationBar";
 
 const ProgressoPage: React.FC = () => {
 
@@ -48,7 +47,6 @@ const ProgressoPage: React.FC = () => {
           </div>
         </div>
       </div>
-      <NavigationBar />
     </div>
   );
 };
