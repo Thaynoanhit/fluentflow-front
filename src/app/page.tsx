@@ -30,7 +30,7 @@ export default function Home() {
         </HeaderInnerContainer>
       </HeaderContainer>
       <FluentFlowBannerWrapper>
-        <Image src={FluentFlowBanner} width={400} />
+        <Image src={FluentFlowBanner} width={400} alt="banner" />
         <ButtonsWrapper>
           <BannerTitle>
             O Jeito rápido e fácil de aprender um idioma!
