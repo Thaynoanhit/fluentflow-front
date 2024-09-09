@@ -2,8 +2,6 @@ import React from 'react';
 import ChevronRight from '../../../assets/img/chevron_right.svg';
 import UnitedStatesFlag from '../../../assets/img/united-states-flag.png'
 import Image from 'next/image';
-import * as Progress from '@radix-ui/react-progress';
-
 
 import {
     Container,
@@ -31,10 +29,6 @@ export function ListWordsCard({ title, percent, image, onClick }: ListWordsCard)
             <ButtonContent>
                 <ContentRight>
                     <Title>{title}</Title>
-                    <Progress.Root value={50} style={{ color: 'red', height: 5}}>
-                        <Progress.Indicator />
-                    </Progress.Root>
-                    <Title>50%</Title>
                 </ContentRight>
                 <RightButton>
                     <Image src={ChevronRight} alt='' width={24} height={24}/>
