@@ -38,11 +38,9 @@ export default function FormRegister() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-       
+        
         const validationErrors = validateEmailAndPassword(username, password);
 
-        
         if (validationErrors.length > 0) {
             validationErrors.forEach((error) => notifyError(error));
             return;
@@ -70,8 +68,8 @@ export default function FormRegister() {
         <div className="page-container">
             <div className="form-section">
                 <form onSubmit={handleSubmit}>
-                    <h1>Welcome!</h1>
-                    <h2>Faça o cadastro</h2>
+                    <h1 className="welcome-title">Welcome!</h1>
+                    <h2 className="register-subtitle">Faça o cadastro</h2>
                     <div className="input-container">
                         <input
                             className="input-field"
@@ -79,7 +77,7 @@ export default function FormRegister() {
                             placeholder="Nome"
                             onChange={(e) => setName(e.target.value)}
                         />
-                        <FaUser className="icon" />
+                        <FaUser className="icon" color="#651FFF" />
                     </div>
                     <div className="input-container">
                         <input
@@ -88,7 +86,7 @@ export default function FormRegister() {
                             placeholder="email@exemplo.com"
                             onChange={(e) => setUsername(e.target.value)}
                         />
-                        <FaUser className="icon" />
+                        <FaUser className="icon" color="#651FFF" />
                     </div>
                     <div className="input-container">
                         <input
@@ -97,16 +95,14 @@ export default function FormRegister() {
                             placeholder="Insira sua senha"
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <FaLock className="icon" />
+                        <FaLock className="icon" color="#651FFF" />
                     </div>
-                    <button type="submit">Registrar</button>
+                    <button className="button-register" type="submit">Registrar</button>
                     <ToastContainer />
                 </form>
             </div>
 
-            <div className="image-section">
-                {}
-            </div>
+            <div className="image-section"/>
         </div>
     );
 }
