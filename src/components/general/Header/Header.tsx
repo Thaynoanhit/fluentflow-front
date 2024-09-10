@@ -1,10 +1,15 @@
 'use client';
 import React, { useEffect, useState } from 'react';
+import { Avatar } from '@mui/material';
+import DogAvatar from '../../../assets/img/dog.png';
+import { FaSignOutAlt } from "react-icons/fa";
 import {
     Container,
     BrandTitle,
     InnerContainer,
-    CustomerName
+    CustomerName,
+    AvatarWrapper,
+    SignOutButton
 } from './styles';
 import { useRouter } from 'next/navigation';
 
@@ -29,6 +34,11 @@ export function Header() {
         }
     }, [router]);
 
+    const signOut = () => {
+        localStorage.removeItem('userData');
+        router.push('/');
+    };
+
     if (!isAuthenticated) {
         return null;
     }
@@ -37,7 +47,13 @@ export function Header() {
         <Container>
             <InnerContainer>
                 <BrandTitle>FluentFlow</BrandTitle>
-                <CustomerName>Olá, {userName}</CustomerName>
+                <AvatarWrapper>
+                    <CustomerName>Olá, {userName}</CustomerName>
+                    <Avatar src={DogAvatar.src} alt='' />
+                    <SignOutButton onClick={signOut}>
+                        <FaSignOutAlt />
+                    </SignOutButton>
+                </AvatarWrapper>
             </InnerContainer>
         </Container>
     );

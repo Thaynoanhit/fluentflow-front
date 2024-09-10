@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
@@ -15,8 +15,4 @@ export const Container = styled.div`
 export const Title = styled.h2`
     text-align: center;
     margin-top: 1rem;
-`;
-
-export const AdviceText = styled.h3`
-    text-align: center;
 `;

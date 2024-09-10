@@ -43,3 +43,15 @@ export const ButtonTitle = styled.text`
     font-weight: 600;
     font-size: 1rem;
 `;
+
+export const AdviceWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 6px;
+`;
+
+
+export const AdviceTitle = styled.text`
+    align-items: center;
+    font-weight: 400;
+`;

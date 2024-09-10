@@ -49,3 +49,9 @@ export const ContentRight = styled.div`
     flex-direction: column;
     margin-right: 14px;
 `;
+
+export const WordsToReview = styled.text`
+    font-weight: 500;
+    font-size: 1rem;
+    color: #6D6DFA;
+`;

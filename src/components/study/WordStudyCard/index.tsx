@@ -8,18 +8,24 @@ import Image from 'next/image';
 type WordCardProps = {
     word: string;
     translation: string;
+    handleOpenModal: () => void;
 }
 
-export function WordStudyCard({word, translation}: WordCardProps){
+export function WordStudyCard({ word, translation, handleOpenModal, words_id }: WordCardProps) {
 
-    return(
-        <Container>
+    const handleOnPress = () => {
+        const wordData = { word, translation, words_id }
+        handleOpenModal(wordData);
+    }
+
+    return (
+        <Container onClick={handleOnPress}>
             <WordsWrapper>
                 <Word>{word}</Word>
                 <Translation>{translation}</Translation>
             </WordsWrapper>
             <RightButton>
-                <Image src={ChevronRight} width={24} alt=''/>
+                <Image src={ChevronRight} width={24} alt='' />
             </RightButton>
         </Container>
     );

@@ -2,10 +2,10 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-import { 
-  HeaderContainer, 
-  HeaderInnerContainer, 
-  FluentFlowBrand, 
+import {
+  HeaderContainer,
+  HeaderInnerContainer,
+  FluentFlowBrand,
   FluentFlowBannerWrapper,
   ButtonsWrapper,
   RegisterButton,
@@ -18,7 +18,7 @@ export default function Home() {
 
   const router = useRouter();
 
-  const handleNavigate = (route:string) => {
+  const handleNavigate = (route: string) => {
     router.push(route)
   }
 
@@ -43,6 +43,6 @@ export default function Home() {
           </HaveAccountButton>
         </ButtonsWrapper>
       </FluentFlowBannerWrapper>
-    </>  
+    </>
   );
 }

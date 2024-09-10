@@ -1,21 +1,18 @@
-/* Container principal*/
+
 .pageContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    height: 100vh;
-    background-color: #f4f4f9;
+    height: 100%;
   }
   
-  /* Estilo do título "Estatísticas de Apendizagem" principal da página */
   .title {
     text-align: center;
     margin-bottom: 20px;
   }
   
-  /* Container que organiza os componentes de estatísticas */
   .centralContainer {
     display: flex;
     flex-direction: column;
@@ -23,21 +20,19 @@
     gap: 20px;
   }  
   
-  /* Cartão de estatísticas */
+ 
   .statCard {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: 80px;
+    width: 360px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
   }  
   
-  /* Container que alinha o título e o valor dentro do cartão */
   .iconTextContainer {
     display: flex;
     flex-direction: column;
@@ -47,14 +42,12 @@
     gap: 5px;
   }
   
-  /* Tamanho do ícone dentro do cartão de estatísticas */
   .statIcon {
     width: 40px;
     height: 40px;
     margin-right: 15px;
   }
   
-  /* Estilo do texto dentro do cartão de estatísticas*/
   .statText {
     display: flex;
     flex-direction: column;
@@ -65,69 +58,21 @@
     gap: 2px;
 } 
   
-/* Estilo do título dentro do cartão de estatísticas, "fonte Poppins" */
   .statTitle {
     font-family: 'Poppins', sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 54px;
     text-align: left;
     margin-bottom: 2px;
   }
   
-  /* Estilo do valor dentro do cartão de estatísticas */
   .statValue {
     font-size: 24px;
     font-weight: bold;
     color: #333;
   }
   
-  /* Cor para o "valor" de Palavras Aprendidas */
   .palavrasAprendidas {
     color: #32cd32;
   }
-  
-  /* Responsividade */
-@media (max-width: 768px) {
-    .statCard {
-        width: 300px;
-        height: 60px;
-    }
-    
-    .statIcon {
-        width: 30px;
-        height: 30px;
-        margin-right: 10px;
-    }
-    
-    .statTitle {
-        font-size: 24px;
-        line-height: 36px;
-    }
-    
-    .statValue {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 480px) {
-    .statCard {
-        width: 250px;
-        height: 50px;
-    }
-    
-    .statIcon {
-        width: 25px;
-        height: 25px;
-        margin-right: 5px;
-    }
-    
-    .statTitle {
-        font-size: 18px;
-        line-height: 28px;
-    }
-    
-    .statValue {
-        font-size: 14px;
-    }
-}
