@@ -1,3 +1,9 @@
+## FluentFlow 📚💻: 
+
+<img width="1007" alt="Captura de Tela 2024-09-10 às 16 40 46" src="https://github.com/user-attachments/assets/9851104c-ce72-4064-9ef2-630bde090678">
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
