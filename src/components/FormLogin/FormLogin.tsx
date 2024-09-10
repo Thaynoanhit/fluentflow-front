@@ -11,11 +11,11 @@ import "../FormLogin/FormLogin.css";
 export default function FormLogin() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const router = useRouter(); 
+    const router = useRouter();
 
     const notifyError = (message: string) => toast(message, { autoClose: 2000, type: 'error', theme: 'colored' });
     const notifySuccess = () => toast("Login realizado com sucesso!", { autoClose: 2000, type: 'success', theme: 'colored' });
-   
+
     const validateEmailAndPassword = (email: string, password: string) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const errors: string[] = [];
@@ -31,9 +31,15 @@ export default function FormLogin() {
         return errors;
     };
 
-
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
+        const validationErrors = validateEmailAndPassword(username, password);
+
+        if (validationErrors.length > 0) {
+            validationErrors.forEach(error => notifyError(error));
+            return;
+        }
 
         try {
             const response = await axios.post("http://localhost:3001/v1/customers/auth/", {
@@ -42,12 +48,12 @@ export default function FormLogin() {
             });
 
             const userData = {
-                user: response.data.user, 
-                token: response.data.token  
+                user: response.data.user,
+                token: response.data.token
             };
 
             localStorage.setItem("userData", JSON.stringify(userData));
-            
+
             notifySuccess();
 
             setTimeout(() => {
@@ -55,13 +61,15 @@ export default function FormLogin() {
             }, 2000);
 
         } catch (error: any) {
-            notifyError(error.response.data.error);
-            notifyError(error.response.data.error[0].message);
+            if (error.response && error.response.data.error) {
+                notifyError(error.response.data.error);
+            } else {
+                notifyError("Erro ao realizar login. Tente novamente.");
+            }
         }
     };
-    
-    return (
 
+    return (
         <div className="page-container">
             <div className="form-section">
                 <form onSubmit={handleSubmit}>
@@ -94,7 +102,7 @@ export default function FormLogin() {
                     <ToastContainer />
                 </form>
             </div>
-            <div className="image-section"/>
+            <div className="image-section" />
         </div>
     );
 }

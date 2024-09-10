@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: "FluentFlow",
 };
 
-const poppins = Poppins({ subsets: ["latin"], weight: ['500', '600', '700'] });
+const poppins = Poppins({ subsets: ["latin"], weight: ['400', '500', '600', '700'] });
 
 export default function RootLayout({
   children,
@@ -20,11 +20,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-        <body className={poppins.className}>
-          <StyledComponentsRegistry>
-            {children}
-          </StyledComponentsRegistry>
-        </body>
-    </html>
+      <body className={poppins.className}>
+        <StyledComponentsRegistry>
+          {children}
+        </StyledComponentsRegistry>
+      </body>
+    </html >
   );
 }

@@ -10,7 +10,6 @@ import axios from "axios";
 import "../FormRegister/FormRegister.css";
 import '@/components/FormRegister/FormRegister.css';
 
-
 export default function FormRegister() {
     const [name, setName] = useState("");
     const [username, setUsername] = useState("");
@@ -20,10 +19,13 @@ export default function FormRegister() {
     const notifyError = (message: string) => toast(message, { autoClose: 2000, type: 'error', theme: 'colored' });
     const notifySuccess = () => toast("Cadastro realizado com sucesso!", { autoClose: 2000, type: 'success', theme: 'colored' });
 
-    
-    const validateEmailAndPassword = (email: string, password: string) => {
+    const validateFields = (name: string, email: string, password: string) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const errors: string[] = [];
+
+        if (name.trim() === "") {
+            errors.push("O nome é obrigatório.");
+        }
 
         if (!emailRegex.test(email)) {
             errors.push("Insira um email válido.");
@@ -38,8 +40,8 @@ export default function FormRegister() {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        
-        const validationErrors = validateEmailAndPassword(username, password);
+
+        const validationErrors = validateFields(name, username, password);
 
         if (validationErrors.length > 0) {
             validationErrors.forEach((error) => notifyError(error));
@@ -59,8 +61,12 @@ export default function FormRegister() {
                 router.push("/login");
             }, 2000);
 
-        } catch (error) {
-            notifyError("Erro ao fazer cadastro. Verifique os dados e tente novamente.");
+        } catch (error: any) {
+            if (error.response && error.response.data && error.response.data.error) {
+                notifyError(error.response.data.error);
+            } else {
+                notifyError("Erro ao fazer cadastro. Verifique os dados e tente novamente.");
+            }
         }
     };
 
@@ -102,7 +108,7 @@ export default function FormRegister() {
                 </form>
             </div>
 
-            <div className="image-section"/>
+            <div className="image-section" />
         </div>
     );
 }

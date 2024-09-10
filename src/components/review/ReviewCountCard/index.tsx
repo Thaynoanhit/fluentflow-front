@@ -2,8 +2,6 @@ import React from 'react';
 import ChevronRight from '../../../assets/img/chevron_right.svg';
 import UnitedStatesFlag from '../../../assets/img/united-states-flag.png'
 import Image from 'next/image';
-import LinearProgress from '@mui/material/LinearProgress';
-import { Box } from '@mui/material';
 
 import {
     Container,
@@ -11,16 +9,17 @@ import {
     Title,
     RightButton,
     ContentRight,
-    ImageCardWrapper
+    ImageCardWrapper,
+    WordsToReview
 } from './styles';
 
 interface ListWordsCard {
+    count: number;
     description: string;
-    id: number;
-    onClick: () => void;
+    onClick: () => void
 }
 
-export function ListWordsCard({ description, id, onClick }: ListWordsCard) {
+export function ReviewCountCard({ description, count, onClick }: ListWordsCard) {
 
     return (
         <Container onClick={onClick}>
@@ -30,9 +29,9 @@ export function ListWordsCard({ description, id, onClick }: ListWordsCard) {
             <ButtonContent>
                 <ContentRight>
                     <Title>{description}</Title>
-                    <Box sx={{ width: '100%' }}>
-                        <LinearProgress variant="determinate" value={25} />
-                    </Box>
+                    {count ?
+                        <WordsToReview>Palavras para revisar: {count}</WordsToReview> :
+                        <WordsToReview>Não Temos Palavras para Revisar Hoje :c </WordsToReview>}
                 </ContentRight>
                 <RightButton>
                     <Image src={ChevronRight} alt='' width={24} height={24} />

@@ -2,13 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import { NavBar, InnerNav, ItemsWrapper, ListItem, Icon, Text } from './styles';
 
 const NavigationBar = () => {
-  const [active, setActive] = useState<string | null>('Listas');
+  const [active, setActive] = useState<string | null>('');
   const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null); // Controle de autenticação
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const userData = localStorage.getItem('userData');
@@ -32,9 +34,14 @@ const NavigationBar = () => {
   const routes = [
     { name: 'Listas', icon: '/icons/home.png', href: '/dashboard' },
     { name: 'Estudar', icon: '/icons/estudar.png', href: '/dashboard/study/' },
-    { name: 'Revisar', icon: '/icons/treinar.png', href: '/Treinar' },
+    { name: 'Revisar', icon: '/icons/treinar.png', href: '/dashboard/review/' },
     { name: 'Progresso', icon: '/icons/progresso.png', href: '/dashboard/progress' },
   ];
+
+  const handleNavigate = (item) => {
+    setActive(item.name);
+    router.push(item.href);
+  }
 
   return (
     <NavBar>
@@ -44,9 +51,9 @@ const NavigationBar = () => {
             <ListItem
               key={item.name}
               isActive={active === item.name}
-              onClick={() => setActive(item.name)}
+              onClick={() => handleNavigate(item)}
             >
-              <Link href={item.href} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: '#8E8E8F'}}>
+              <Link href={item.href} style={{ display: 'flex', alignItems: 'center', textDecoration: 'none', color: '#8E8E8F', height: '100%' }}>
                 <Icon src={item.icon} alt={item.name} />
                 {(active === item.name || !isSmallScreen) && (
                   <Text>{item.name}</Text>
