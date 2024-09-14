@@ -23,6 +23,7 @@ export const WordsContainer = styled.div`
 
 export const Title = styled.h2`
     text-align: center;
+    margin-top: 24px;
 `;
 
 export const GridContainer = styled.div`
